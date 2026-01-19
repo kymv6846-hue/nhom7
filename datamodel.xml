@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Database name="StudentManagementSystem">
+  <Table name="DEPARTMENT">
+    <Column name="departmentID" type="char(10)" key="PK" />
+    <Column name="departmentName" type="text" />
+    <Column name="phone" type="char(10)" />
+    <Column name="email" type="varchar(50)" />
+  </Table>
+  <Table name="LECTURER">
+    <Column name="lecturerID" type="char(7)" key="PK" />
+    <Column name="fullName" type="varchar(50)" />
+    <Column name="email" type="varchar(50)" />
+    <Column name="phone" type="char(10)" />
+    <Column name="departmentID" type="char(10)" key="FK" />
+  </Table>
+  <Table name="STUDENT">
+    <Column name="studentID" type="char(12)" key="PK" />
+    <Column name="fullName" type="varchar(50)" />
+    <Column name="dateOfBirth" type="char(10)" />
+    <Column name="gender" type="varchar(6)" />
+    <Column name="email" type="varchar(50)" />
+    <Column name="phone" type="char(10)" />
+    <Column name="status" type="varchar(11)" />
+    <Column name="departmentID" type="char(10)" key="FK" />
+  </Table>
+  <Table name="COURSE">
+    <Column name="courseID" type="char(13)" key="PK" />
+    <Column name="courseName" type="text" />
+    <Column name="credits" type="int" />
+  </Table>
+  <Table name="CLASS_SECTION">
+    <Column name="classSectionID" type="char(12)" key="PK" />
+    <Column name="courseID" type="char(13)" />
+    <Column name="lecturer" type="char(7)" />
+    <Column name="semester" type="char(12)" />
+    <Column name="schedule" type="varchar(100)" />
+    <Column name="room" type="char(4)" />
+  </Table>
+  <Table name="GRADE">
+    <Column name="gradeID" type="int" key="PK" />
+    <Column name="studentID" type="char(12)" key="FK" />
+    <Column name="classSectionID" type="char(12)" />
+    <Column name="attendanceScore" type="int" />
+    <Column name="midtermScore" type="int" />
+    <Column name="finalScore" type="int" />
+    <Column name="totalScore" type="int" />
+  </Table>
+  <Table name="ASSIGNMENT">
+    <Column name="assignmentID" type="varchar(10)" key="PK" />
+    <Column name="studentID" type="char(12)" key="FK" />
+    <Column name="classSectionID" type="char(12)" key="FK" />
+    <Column name="assignmentDate" type="char(10)" />
+    <Column name="assignmentType" type="text" />
+  </Table>
+</Database>
